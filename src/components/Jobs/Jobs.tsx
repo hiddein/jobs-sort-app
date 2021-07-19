@@ -1,15 +1,16 @@
-import { useEffect } from "react"
 import { useDispatch } from "react-redux"
+import { useEffect } from "react-redux/node_modules/@types/react"
 import { useTypedSelector } from "../../hooks/useTypedSelector"
-import api from "../../modules/api/api"
-import { JOBS } from "../../modules/api/endpoints"
-import { fetchJobs, fetchJobsError, fetchJobsSuccess } from "../../store/reducers/jobsReducer"
+import { fetchJobs } from "../../store/reducers/jobsReducer"
 
 const Jobs: React.FC = () => {
   const stateJobs = useTypedSelector((state) => state.jobs.jobs)
   console.log(stateJobs)
   const dispatch = useDispatch()
 
+  useEffect(()=> {
+      dispatch(fetchJobs())
+  })
  
   return <div>
       {stateJobs && stateJobs.map((item,index)=> {
