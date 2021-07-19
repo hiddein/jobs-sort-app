@@ -9,10 +9,12 @@ const Jobs: React.FC = () => {
   const dispatch = useDispatch()
 
   useEffect(()=> {
-      dispatch(fetchJobs())
-  })
+    dispatch(fetchJobs())
+  },[dispatch])
+
  
   return <div>
+      <button onClick={()=> dispatch(fetchJobs())} ></button>
       {stateJobs && stateJobs.map((item,index)=> {
           return (
               <div key={index}>
