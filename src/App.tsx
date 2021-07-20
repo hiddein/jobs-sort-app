@@ -26,7 +26,6 @@ const App: React.FC = () => {
       <main className={classes.content}>
         <div className={classes.toolbar} />
           <Emps />
-
       </main>
     </div>
   )

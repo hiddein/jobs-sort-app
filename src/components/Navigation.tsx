@@ -75,8 +75,8 @@ export const Navigation: React.FC<InavigationProps> = ({
             <ListItem
               button
               key={id}
-              onClick={() => dispatch(setSelectedJob(id))}
-              selected={ id === selectedJob }
+              onClick={() => dispatch(setSelectedJob(jobId))}
+              selected={id === selectedJob}
             >
               <ListItemText primary={title} />
             </ListItem>

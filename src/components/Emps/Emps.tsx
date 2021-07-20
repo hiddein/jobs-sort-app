@@ -2,9 +2,10 @@ import { useEffect, useMemo } from "react"
 import { useDispatch } from "react-redux"
 import { useTypedSelector } from "../../hooks/useTypedSelector"
 import { fetchEmps } from "../../store/reducers/empsReduser"
+import { ProfileGrid } from "./ProfileGrid"
 
 const Emps: React.FC = () => {
-  const emps = useTypedSelector((state) => state.emp)
+  const empsState = useTypedSelector((state) => state.emp)
   const selectedJob = useTypedSelector((state) => state.jobs.selectedJob)
 
   const dispatch = useDispatch()
@@ -14,18 +15,18 @@ const Emps: React.FC = () => {
   }, [dispatch])
 
   const preparedData = useMemo(() => {
-    if (!Array.isArray(emps)) {
+    if (!Array.isArray(empsState.emps)) {
       return []
     }
 
     if (!selectedJob) {
-      return emps
+      return empsState.emps
     }
 
-    return emps.filter((employee) => employee.job === selectedJob)
-  }, [emps, selectedJob])
+    return empsState.emps.filter((employee) => employee.job === selectedJob)
+  }, [empsState, selectedJob])
 
-  return <div>Emps Component</div>
+  return <ProfileGrid profiles={preparedData} loading={empsState.loading} />
 }
 
 export default Emps
