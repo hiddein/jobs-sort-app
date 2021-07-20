@@ -1,7 +1,7 @@
 import { takeEvery, put } from "redux-saga/effects"
 import api from "../modules/api/api"
 import { JOBS } from "../modules/api/endpoints"
-import { fetchJobs, fetchJobsError, fetchJobsSuccess } from "../store/reducers/jobsReducer"
+import { fetchJobsError, fetchJobsSuccess } from "../store/reducers/jobsReducer"
 import { JobsActionTypes } from "../types/jobsRed"
 
 export function* onJobsLoad(): any {

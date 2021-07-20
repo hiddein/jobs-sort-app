@@ -1,5 +1,5 @@
 import { takeEvery, put } from "redux-saga/effects"
-import { fetchEmps, fetchEmpsError, fetchEmpsSuccess } from "../store/reducers/empsReduser"
+import { fetchEmpsError, fetchEmpsSuccess } from "../store/reducers/empsReduser"
 import { EmpsActionTypes } from "../types/empsRed"
 import api from "../modules/api/api"
 import { EMPS } from "../modules/api/endpoints"
