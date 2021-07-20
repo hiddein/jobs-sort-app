@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux"
-import { useEffect } from "react-redux/node_modules/@types/react"
+import { useEffect } from "react"
 import { useTypedSelector } from "../../hooks/useTypedSelector"
 import { fetchJobs } from "../../store/reducers/jobsReducer"
 
@@ -14,7 +14,6 @@ const Jobs: React.FC = () => {
 
  
   return <div>
-      <button onClick={()=> dispatch(fetchJobs())} ></button>
       {stateJobs && stateJobs.map((item,index)=> {
           return (
               <div key={index}>
